@@ -2,7 +2,7 @@
 
 ## Table of Contents
 
-- [Introduction](#introduction)
+- [Introduction](#introduction) -[Redux Core Concepts](#redux-core-concepts)
 
 ## Introduction
 
@@ -31,3 +31,79 @@ Redux Toolkit is the official, opinionated, batteries-included toolset for effic
 - store will update the view
 
 <img width="745" alt="Screenshot 2022-05-17 at 19 37 57" src="https://user-images.githubusercontent.com/28184926/168863620-b2ffa708-8c0b-4b90-b81d-45212248b055.png">
+
+## Redux Core Concepts
+
+- State: consider what states you want to manage
+
+  ```js
+  // define states
+  count: 0;
+  const initialState = { count: 0 };
+  const initialState2 = { users: [{ name: "anisul islam" }] };
+  ```
+
+- Action: actions are object that have 2 things- type & payload
+
+  ```js
+  // define constants
+  const INCREMENT = "INCREMENT";
+  const DECREMENT = "DECREMENT";
+  const ADD_USER = "ADD_USER";
+
+  // dispatch(Action)
+  {
+    type: INCREMENT,
+  }
+  {
+    type: DECREMENT,
+  }
+  {
+    type: ADD_USER,
+    payload: {
+      name: "rafiqul islam",
+    }
+  }
+  ```
+
+- Reducer: reducers are pure function which handles all logic. it updates the state depends on action type
+
+  ```js
+  // crate reducer
+  const counterReducer = (state = initialState, action) => {
+    switch (action.type) {
+      case INCREMENT:
+        return {
+          ...state,
+          count: state.count + 1,
+        };
+      case DECREMENT:
+        return {
+          ...state,
+          count: state.count - 1,
+        };
+
+      default:
+        return state;
+    }
+  };
+  ```
+
+- Store: It holds the states. It has 3 important methods- getState(), dispatch(), suscribe()
+
+  ```js
+  // 4. store - getState(), dispatch(), subscribe()
+
+  // create store
+  const store = createStore(counterReducer);
+
+  store.subscribe(() => {
+    console.log(store.getState());
+  });
+
+  // dispatch action
+  store.dispatch(incrementCounter());
+  store.dispatch(incrementCounter());
+  store.dispatch(incrementCounter());
+  store.dispatch(decrementCounter());
+  ```
