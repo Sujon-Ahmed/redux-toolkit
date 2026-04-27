@@ -1,0 +1,24 @@
+{
+  "name": "redux-toolkit",
+  "version": "1.0.0",
+  "description": "In this repo, I will share my experience regarding redux, react-redux and redux-toolkit",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/Sujon-Ahmed/redux-toolkit.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "type": "commonjs",
+  "bugs": {
+    "url": "https://github.com/Sujon-Ahmed/redux-toolkit/issues"
+  },
+  "homepage": "https://github.com/Sujon-Ahmed/redux-toolkit#readme",
+  "dependencies": {
+    "redux": "^5.0.1"
+  }
+}
